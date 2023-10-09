@@ -2,8 +2,7 @@ class Solution {
     public int smallestDivisor(int[] nums, int threshold) {
         int n = nums.length;
         //this means if the no of elements in the array is more then the threshold value then its not possible
-        if(n>threshold) return -1;
-
+        
         // maximum element
         int maxi= Integer.MIN_VALUE;
         for(int i=0; i<n; i++){
