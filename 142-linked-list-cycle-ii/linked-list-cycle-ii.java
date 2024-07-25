@@ -20,13 +20,13 @@ public class Solution {
         while(fast!=null && fast.next!= null){
             fast=fast.next.next;
             slow=slow.next;
-            if(fast==slow){
-                ListNode p2 = head;
+            if(fast==slow){ //here fast and slow are at same point
+                ListNode p2 = head;// we will start another pointer from starting
                 while(p2!=slow){
-                    p2=p2.next;
-                    slow=slow.next;
+                    p2=p2.next;//move it by one step
+                    slow=slow.next;// move it by one step
                 }
-                return slow;
+                return slow; // we will get where the cycle started
             }
         }
         return null;
