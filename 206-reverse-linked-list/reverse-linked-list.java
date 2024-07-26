@@ -9,22 +9,23 @@
  * }
  */
 class Solution {
-    //recursive approach
-    private ListNode reverse(ListNode node) {
-        if (node == null || node.next == null) {
-            return node; // this this becomes null we will start iterating 
-        } 
-        // at last we will have 5 whose next is null so wew will finally return 5 
-        // now node.next is 5 so 5.next is 4 and then 4.next will be null 
-        // similarly this process will continue
-        ListNode newHead = reverse(node.next);
-        node.next.next = node;
-        node.next = null;
-        return newHead;
-    }
-    
-    // Entry point to the reversal process
     public ListNode reverseList(ListNode head) {
-        return reverse(head);
+        if(head == null){
+            return head;
+        }
+        ListNode prev= null;
+        ListNode pres=head;
+        ListNode next= pres.next;
+
+        while(pres!=null){
+            pres.next=prev;//5 pointing toward null
+            prev=pres;
+            pres=next;
+            if(next!=null){
+                next=next.next;// at the end the next pointer will be removed and only prev and pres will move forward
+                // thus only 2
+            }
+        }
+        return prev;
     }
 }
