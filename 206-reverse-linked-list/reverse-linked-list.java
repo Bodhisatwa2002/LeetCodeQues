@@ -10,22 +10,15 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        if(head == null){
-            return head;
+        ListNode prev=null;
+        ListNode curr = head;
+        while(curr!=null){
+            ListNode currP1=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=currP1;
         }
-        ListNode prev= null;
-        ListNode pres=head;
-        ListNode next= pres.next;
-
-        while(pres!=null){
-            pres.next=prev;//5 pointing toward null
-            prev=pres;
-            pres=next;
-            if(next!=null){
-                next=next.next;// at the end the next pointer will be removed and only prev and pres will move forward
-                // thus only 2
-            }
-        }
-        return prev;
+        head=prev;
+        return head;
     }
 }
