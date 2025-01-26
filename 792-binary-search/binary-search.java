@@ -1,19 +1,17 @@
 class Solution {
-    public int search(int[] arr, int target) {
-        int start = 0;
-        int end = arr.length - 1;
-
-        while(start <= end){
-            //find the middle element
-            int mid = start + (end - start) / 2 ;
-            if(target < arr[mid]){
-                end = mid -1;
-            } else if (target > arr[mid]) {
-                start = mid + 1;
+    public int search(int[] nums, int target) {
+        int l=0;
+        int h =nums.length-1;
+        while(h>=l){
+            int m = l+(h-l)/2;
+            if(nums[m]==target){
+                return m;
+            }
+            if(nums[m]>target){
+                h=m-1;
             }
             else{
-                // if middle element is the target element then
-                return mid ;
+                l=m+1;
             }
         }
         return -1;
